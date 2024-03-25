@@ -1,0 +1,68 @@
+-- Aqui em baixo estara a Lib da nossa UI
+
+local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/7yhx/kwargs_Ui_Library/main/source.lua"))()
+
+local UI = Lib:Create{
+    Theme = "Dark", -- or any other theme
+    Size = UDim2.new(0, 555, 0, 400) -- default
+ }
+ 
+ local Main = UI:Tab{
+    Name = "Inicio"
+ }
+ 
+ local Divider = Main:Divider{
+    Name = "Inicio shit"
+ }
+ 
+ local QuitDivider = Main:Divider{
+    Name = "Sair"
+ }
+
+ local espNameEnabled = true
+local espLineEnabled = true
+local espBoxEnabled = true
+
+-- Aimbot Settings
+local aimbotSilentEnabled = true
+local aimbotHeadEnabled = true
+
+-- God Mode
+local godModeEnabled = true
+
+-- Function to toggle features
+local function toggleFeature(feature, enabled)
+    if feature then
+        return "ativado"
+    else
+        return "desativado"
+    end
+end
+
+-- Main Loop
+while true do
+    -- Check for user input (e.g., key presses)
+    -- Implement your own logic here to activate/deactivate features based on user input
+
+    -- Example: Press "E" to toggle ESP Name
+    if IsKeyPressed(Enum.KeyCode.E) then
+        espNameEnabled = not espNameEnabled
+        print("ESP Name " .. toggleFeature(espNameEnabled))
+    end
+
+    -- Example: Press "Q" to toggle Aimbot Silent
+    if IsKeyPressed(Enum.KeyCode.Q) then
+        aimbotSilentEnabled = not aimbotSilentEnabled
+        print("Aimbot Silent " .. toggleFeature(aimbotSilentEnabled))
+    end
+
+    -- Example: Press "G" to toggle God Mode
+    if IsKeyPressed(Enum.KeyCode.G) then
+        godModeEnabled = not godModeEnabled
+        print("God Mode " .. toggleFeature(godModeEnabled))
+    end
+
+    -- Implement other features similarly
+
+    wait(0.1) -- Adjust the delay as needed
+end
